@@ -3,12 +3,17 @@
 std = 'lua54'
 max_line_length = 200
 
--- Ignore common callback argument and line length warnings
+-- Ignore FiveM runtime dynamic globals and non-critical warnings
 ignore = {
+    '111', -- Setting non-standard global variable (framework bridges)
+    '113', -- Accessing undefined variable (FiveM runtime provides all natives dynamically)
+    '211', -- Unused variable
     '212', -- Unused argument
     '213', -- Unused loop variable
+    '311', -- Value assigned to variable is unused
     '631', -- Line is too long
 }
+
 
 -- Global variables provided by CFX runtime and FiveM native engine
 globals = {

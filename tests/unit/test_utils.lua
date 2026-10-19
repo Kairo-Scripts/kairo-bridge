@@ -12,7 +12,8 @@ function Assert.Equal(a, b, msg)
 end
 
 -- Mock minimal environment if running standalone
-local Utils = {
+local Utils
+Utils = {
     CompareVersions = function(v1, v2)
         local function parse(v)
             local t = {}
