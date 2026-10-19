@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Package Release ZIP
+        run: |
+          mkdir -p build/kairo-bridge
+          rsync -av --exclude='.git*' \
+                    --exclude='.github' \
+                    --exclude='docs' \
+                    --exclude='tests' \
+                    --exclude='generated' \
+                    --exclude='.luarc.json' \
+                    --exclude='.luacheckrc' \
+                    ./ build/kairo-bridge/
+          cd build
+          zip -r ../kairo-bridge.zip kairo-bridge
+          cd ..
+          sha256sum kairo-bridge.zip > kairo-bridge.zip.sha256
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            kairo-bridge.zip
+            kairo-bridge.zip.sha256
+          draft: false
+          prerelease: false
+          generate_release_notes: true

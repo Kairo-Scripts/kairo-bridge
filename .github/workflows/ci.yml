@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate JavaScript Syntax
+        run: |
+          node --check html/script.js
+
+      - name: Validate Lua Syntax
+        run: |
+          npx -y luaparse $(find . -name "*.lua" -not -path "*/.*")
+
+      - name: Run Unit Tests
+        run: |
+          node tests/runner.js
+
+  luacheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Luacheck
+        uses: leafo/gh-actions-luacheck@v1
+
+      - name: Run Luacheck
+        run: |
+          luacheck . --config .luacheckrc

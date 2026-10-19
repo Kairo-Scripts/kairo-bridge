@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kairo Bridge UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Toast Notifications Container -->
+        <div id="notify-container" class="notify-container"></div>
+
+        <!-- Floating TextUI Pill -->
+        <div id="textui-container" class="textui-container hidden">
+            <div class="textui-pill">
+                <div id="textui-key" class="key-badge">E</div>
+                <div id="textui-icon" class="textui-icon"></div>
+                <div id="textui-label" class="textui-label">Interact</div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="progress-container" class="progress-container hidden">
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span id="progress-label" class="progress-label">Action in progress...</span>
+                    <span id="progress-percent" class="progress-percent">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Backdrop for Interactive Widgets -->
+        <div id="modal-backdrop" class="modal-backdrop hidden">
+            <!-- Alert Dialog -->
+            <div id="alert-modal" class="modal-card alert-card hidden">
+                <div class="modal-header">
+                    <div id="alert-icon" class="alert-header-icon"></div>
+                    <h3 id="alert-header" class="modal-title">Alert</h3>
+                </div>
+                <div id="alert-content" class="modal-body"></div>
+                <div class="modal-footer">
+                    <button id="alert-cancel-btn" class="btn btn-secondary">Cancel</button>
+                    <button id="alert-confirm-btn" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+
+            <!-- Input Dialog -->
+            <div id="input-modal" class="modal-card input-card hidden">
+                <div class="modal-header">
+                    <h3 id="input-header" class="modal-title">Dialog</h3>
+                    <button id="input-close-btn" class="modal-close">&times;</button>
+                </div>
+                <form id="input-form" class="modal-body input-fields-list"></form>
+                <div class="modal-footer">
+                    <button id="input-cancel-btn" type="button" class="btn btn-secondary">Cancel</button>
+                    <button id="input-submit-btn" type="button" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+            <!-- Context Menu -->
+            <div id="menu-modal" class="modal-card menu-card hidden">
+                <div class="modal-header">
+                    <div class="menu-title-row">
+                        <button id="menu-back-btn" class="menu-back-btn hidden">&#8592;</button>
+                        <h3 id="menu-title" class="modal-title">Menu</h3>
+                    </div>
+                    <button id="menu-close-btn" class="modal-close">&times;</button>
+                </div>
+                <div id="menu-subtitle" class="menu-subtitle"></div>
+                <div id="menu-options" class="menu-options-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

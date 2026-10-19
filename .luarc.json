@@ -1,0 +1,78 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "runtime.version": "Lua 5.4",
+  "runtime.special": {
+    "Kairo.Require": "require"
+  },
+  "runtime.nonstandardSymbol": [
+    "/**/",
+    "`"
+  ],
+  "workspace.checkThirdParty": false,
+  "workspace.library": [
+    "types"
+  ],
+  "workspace.ignoreDir": [
+    ".git",
+    ".github",
+    "html",
+    "generated"
+  ],
+  "diagnostics.globals": [
+    "Kairo",
+    "Citizen",
+    "vector2",
+    "vector3",
+    "vector4",
+    "quat",
+    "exports",
+    "LocalPlayer",
+    "GlobalState",
+    "Player",
+    "Entity",
+    "RegisterNetEvent",
+    "RegisterServerEvent",
+    "RegisterNUICallback",
+    "AddEventHandler",
+    "RemoveEventHandler",
+    "TriggerEvent",
+    "TriggerClientEvent",
+    "TriggerServerEvent",
+    "CreateThread",
+    "CreateThreadNow",
+    "Wait",
+    "SetTimeout",
+    "GetCurrentResourceName",
+    "GetResourceState",
+    "GetResourceMetadata",
+    "LoadResourceFile",
+    "SaveResourceFile",
+    "IsDuplicityVersion",
+    "json",
+    "performHttpRequest",
+    "SendNUIMessage",
+    "SetNuiFocus",
+    "SetNuiFocusKeepInput",
+    "PlayerPedId",
+    "GetEntityCoords",
+    "DoesEntityExist",
+    "GetVehiclePedIsIn",
+    "GetVehicleNumberPlateText",
+    "NetworkGetEntityFromNetworkId",
+    "NetworkGetNetworkIdFromEntity",
+    "AddBlipForCoord",
+    "SetBlipSprite",
+    "SetBlipColour",
+    "SetBlipScale",
+    "SetBlipAsShortRange",
+    "SetBlipFlashes",
+    "BeginTextCommandSetBlipName",
+    "AddTextComponentSubstringPlayerName",
+    "EndTextCommandSetBlipName",
+    "RemoveBlip"
+  ],
+  "diagnostics.disable": [
+    "duplicate-set-field",
+    "lowercase-global"
+  ]
+}

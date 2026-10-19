@@ -1,0 +1,117 @@
+-- luacheck configuration for kairo-bridge
+
+std = 'lua54'
+max_line_length = 200
+
+-- Ignore common callback argument and line length warnings
+ignore = {
+    '212', -- Unused argument
+    '213', -- Unused loop variable
+    '631', -- Line is too long
+}
+
+-- Global variables provided by CFX runtime and FiveM native engine
+globals = {
+    -- Bridge namespace
+    'Kairo',
+    'Config',
+
+    -- CFX / Citizen core
+    'Citizen',
+    'exports',
+    'vector2',
+    'vector3',
+    'vector4',
+    'quat',
+    'GlobalState',
+    'LocalPlayer',
+    'Player',
+    'Entity',
+
+    -- Event & thread management
+    'RegisterNetEvent',
+    'RegisterServerEvent',
+    'RegisterNUICallback',
+    'AddEventHandler',
+    'RemoveEventHandler',
+    'TriggerEvent',
+    'TriggerClientEvent',
+    'TriggerServerEvent',
+    'CreateThread',
+    'CreateThreadNow',
+    'Wait',
+    'SetTimeout',
+
+    -- Resource environment
+    'GetCurrentResourceName',
+    'GetResourceState',
+    'GetResourceMetadata',
+    'LoadResourceFile',
+    'SaveResourceFile',
+    'IsDuplicityVersion',
+    'json',
+    'performHttpRequest',
+
+    -- NUI
+    'SendNUIMessage',
+    'SetNuiFocus',
+    'SetNuiFocusKeepInput',
+
+    -- FiveM Native functions
+    'PlayerPedId',
+    'GetEntityCoords',
+    'GetEntityHeading',
+    'SetEntityCoords',
+    'SetEntityHeading',
+    'DoesEntityExist',
+    'DeleteEntity',
+    'GetVehiclePedIsIn',
+    'GetVehicleNumberPlateText',
+    'SetVehicleNumberPlateText',
+    'SetVehicleDoorsLocked',
+    'GetVehicleDoorLockStatus',
+    'NetworkGetEntityFromNetworkId',
+    'NetworkGetNetworkIdFromEntity',
+    'NetworkGetEntityIsNetworked',
+    'TaskPlayAnim',
+    'ClearPedTasks',
+    'ClearPedTasksImmediately',
+    'RequestAnimDict',
+    'HasAnimDictLoaded',
+    'AttachEntityToEntity',
+    'DeleteObject',
+    'AddBlipForCoord',
+    'SetBlipSprite',
+    'SetBlipColour',
+    'SetBlipScale',
+    'SetBlipAsShortRange',
+    'SetBlipFlashes',
+    'BeginTextCommandSetBlipName',
+    'AddTextComponentSubstringPlayerName',
+    'EndTextCommandSetBlipName',
+    'RemoveBlip',
+    'GetEntityHealth',
+    'SetEntityHealth',
+    'SetEntityInvincible',
+    'NetworkResurrectLocalPlayer',
+    'IsPedDeadOrDying',
+    'IsPedFatallyInjured',
+    'GetGameTimer',
+    'GetPedPropIndex',
+    'GetPedPropTextureIndex',
+    'SetPedPropIndex',
+    'ClearPedProp',
+    'GetPedDrawableVariation',
+    'GetPedTextureVariation',
+    'SetPedComponentVariation',
+    'GetNumberOfPedDrawableVariations',
+    'GetNumberOfPedTextureVariations',
+    'GetNumberOfPedPropDrawableVariations',
+    'GetNumberOfPedPropTextureVariations',
+}
+
+files['modules/database/**'] = {
+    globals = {
+        'MySQL',
+    }
+}
