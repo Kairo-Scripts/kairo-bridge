@@ -18,7 +18,6 @@ local registry = {
     },
 }
 
-local activeTarget = nil
 local activeOption = nil
 local threadRunning = false
 

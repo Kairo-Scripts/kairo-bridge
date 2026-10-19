@@ -158,7 +158,6 @@ function NUI.ProgressBar(opts)
     })
 
     -- Optional anim/control disable thread
-    local cancelled = false
     if opts.disable or opts.anim then
         CreateThread(function()
             local ped = PlayerPedId()
@@ -172,7 +171,6 @@ function NUI.ProgressBar(opts)
             while (GetGameTimer() - start) < duration and activePromise == p do
                 Wait(0)
                 if opts.canCancel ~= false and IsControlJustPressed(0, 73) then -- X key to cancel
-                    cancelled = true
                     SendNUIMessage({ action = 'cancelProgressBar' })
                     break
                 end

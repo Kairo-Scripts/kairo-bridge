@@ -10,6 +10,7 @@ ignore = {
     '211', -- Unused variable
     '212', -- Unused argument
     '213', -- Unused loop variable
+    '231', -- Variable is set but never accessed
     '311', -- Value assigned to variable is unused
     '631', -- Line is too long
 }
